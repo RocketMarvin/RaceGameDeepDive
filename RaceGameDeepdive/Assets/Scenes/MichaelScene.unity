@@ -790,8 +790,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123539480}
-  - component: {fileID: 1123539479}
   - component: {fileID: 1123539481}
+  - component: {fileID: 1123539479}
   - component: {fileID: 1123539482}
   m_Layer: 0
   m_Name: car
