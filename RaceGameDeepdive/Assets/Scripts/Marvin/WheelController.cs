@@ -24,7 +24,7 @@ public class WheelController : MonoBehaviour
     private void FixedUpdate()
     {
         currentAcceleration = acceleration * Input.GetAxis("RTTrigger");
-        currentBackAcceleration = acceleration * Input.GetAxis("LTTrigger");
+        currentBackAcceleration = backAcceleration * Input.GetAxis("LTTrigger");
         Debug.Log("forward: " + currentAcceleration);
         Debug.Log("backward: " + currentBackAcceleration);
 
@@ -43,11 +43,12 @@ public class WheelController : MonoBehaviour
         frontLeftWheelCollider.steerAngle = currentTurnAngle;
         frontRightWheelCollider.steerAngle = currentTurnAngle;
 
-        UpdateWheel(    frontLeftWheelCollider, frontLeftTransform);
+        UpdateWheel(frontLeftWheelCollider, frontLeftTransform);
         UpdateWheel(frontRightWheelCollider, frontRightTransform);
         UpdateWheel(rearLeftWheelCollider, rearLeftTransform);
         UpdateWheel(rearRightWheelCollider, rearRightTransform);
          
+
     }
 
     void UpdateWheel(WheelCollider col, Transform trans)
