@@ -20,6 +20,10 @@ public class CheckpointsAndLaps : MonoBehaviour
     private bool started;
     private bool finished;
 
+    private float currentLapTime;
+    private float bestLapTime;
+    private float bestLap;
+
 
     private void Start()
     {
@@ -28,6 +32,28 @@ public class CheckpointsAndLaps : MonoBehaviour
 
         started = false;
         finished = false;
+
+        currentLapTime = 0;
+        bestLapTime = 0;
+ 
+    }
+
+    private void Update()
+    {
+        if (started && !finished)
+        {
+            currentLapTime += Time.deltaTime;
+            
+            if (bestLap == 0)
+            {
+                bestLap = 1;
+            }
+        }
+
+        if (bestLap == currentLap)
+        {
+            bestLapTime = currentLapTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +77,11 @@ public class CheckpointsAndLaps : MonoBehaviour
                 {
                     if (currentCheckpoint == checkpoints.Length)
                     {
+                        if (currentLapTime < bestLapTime)
+                        {
+                            bestLap = currentLap;
+                        }
+
                         finished = true;
                         print("Finished");
                     }
@@ -66,9 +97,16 @@ public class CheckpointsAndLaps : MonoBehaviour
                 {
                     if (currentCheckpoint == checkpoints.Length)
                     {
+                        if (currentLapTime < bestLapTime)
+                        {
+                            bestLap = currentLap;
+                            bestLapTime = currentLapTime;
+                        }
+
                         currentLap++;
                         currentCheckpoint = 0;
-                        print($"Started lap {currentLap}");
+                        currentLapTime = 0;
+                        print($"Started lap {currentLap} - {Mathf.FloorToInt(currentLapTime / 60)}:{currentLapTime % 60:00.000}");
                     }
                 }
                 else
@@ -86,7 +124,7 @@ public class CheckpointsAndLaps : MonoBehaviour
                 // If the checkpoint is correct//
                 if (thischeckpoint == checkpoints[i] && i == currentCheckpoint)
                 {
-                    print("correct checkpoint");
+                    print($"correct checkpoint - { Mathf.FloorToInt(currentLapTime / 60)}:{ currentLapTime % 60:00.000}");
                     currentCheckpoint++;
                 }
                 else if (thischeckpoint == checkpoints[i] && i != currentCheckpoint)
@@ -95,5 +133,18 @@ public class CheckpointsAndLaps : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnGUI()
+    {
+        //GUI Style//
+        GUIStyle myStyle = new GUIStyle();
+        myStyle.fontSize = 40;
+        //current time//
+        string formattedCurrentTime = $"Current: {Mathf.FloorToInt(currentLapTime / 60)}:{currentLapTime % 60:00.000} - (Lap {currentLap})";
+        GUI.Label(new Rect(10, 20, 250, 100), formattedCurrentTime, myStyle);
+        // best time //
+        string formattedBestTime = $"best: {Mathf.FloorToInt(bestLapTime / 60)}:{bestLapTime % 60:00.000} - (Lap {bestLap})";
+        GUI.Label(new Rect(550, 20, 250, 100), formattedBestTime, myStyle);
     }
 }
