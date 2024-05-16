@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [Header("MenuObject")]
+    [SerializeField] private GameObject _startGameMenu;
+    [SerializeField] private GameObject _mapSelectMenu;
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("ZoëScene");
-    }
+    [Header("FirstSelectedButtons")]
+    [SerializeField] private GameObject _startMenuFirst;
+    [SerializeField] private GameObject _mapMenuFirst;
 
-    public void QuitGame ()
+    private void Start()
     {
-        Debug.Log("quit");
-        Application.Quit();
+        _startGameMenu.SetActive(true);
+        _mapSelectMenu.SetActive(false);
     }
 }
