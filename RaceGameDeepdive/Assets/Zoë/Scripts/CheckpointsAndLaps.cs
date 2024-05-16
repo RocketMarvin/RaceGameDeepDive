@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using TMPro;
 
 public class CheckpointsAndLaps : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CheckpointsAndLaps : MonoBehaviour
     private float bestLapTime;
     private float bestLap;
 
-
+    public TextMeshProUGUI KMtext;
     private void Start()
     {
         currentCheckpoint = 0;
@@ -35,7 +36,7 @@ public class CheckpointsAndLaps : MonoBehaviour
 
         currentLapTime = 0;
         bestLapTime = 0;
- 
+
     }
 
     private void Update()
@@ -54,6 +55,8 @@ public class CheckpointsAndLaps : MonoBehaviour
         {
             bestLapTime = currentLapTime;
         }
+
+        KMtext.fontStyle = FontStyles.Italic;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -140,6 +143,8 @@ public class CheckpointsAndLaps : MonoBehaviour
         //GUI Style//
         GUIStyle myStyle = new GUIStyle();
         myStyle.fontSize = 40;
+        myStyle.normal.textColor = Color.white;
+        myStyle.fontStyle = FontStyle.BoldAndItalic;
         //current time//
         string formattedCurrentTime = $"Current: {Mathf.FloorToInt(currentLapTime / 60)}:{currentLapTime % 60:00.000} - (Lap {currentLap})";
         GUI.Label(new Rect(10, 20, 250, 100), formattedCurrentTime, myStyle);
