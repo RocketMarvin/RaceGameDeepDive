@@ -1117,6 +1117,7 @@ MonoBehaviour:
   - {fileID: 663367339}
   - {fileID: 1447170540}
   laps: 1
+  ghostcar: {fileID: 1448461891}
   ghost: {fileID: 11400000, guid: 9a1b44505de84ec4e8eeb07a3a3bf772, type: 2}
 --- !u!1001 &534366543
 PrefabInstance:

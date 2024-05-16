@@ -19,6 +19,8 @@ public class Checkpoints : MonoBehaviour
     private float currentLap;
     private bool started;
     private bool finished;
+
+    public GameObject ghostcar;
     
 
     private static float currentLapTime;
@@ -28,6 +30,8 @@ public class Checkpoints : MonoBehaviour
     public Ghost ghost;
     private void Start()
     {
+        ghostcar.SetActive(false);
+
         currentCheckpoint = 0;
         currentLap = 1;
 
@@ -69,6 +73,7 @@ public class Checkpoints : MonoBehaviour
                 ghost.ResetData();
                 ghost.driving = true;
                 ghost.isRecord = true;
+                ghostcar.SetActive (true);
                 started = true;
                 if (ghost.bestTime == true)
                 {
