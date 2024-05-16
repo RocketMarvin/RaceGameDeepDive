@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checkpoints : MonoBehaviour
 {
@@ -67,7 +68,7 @@ public class Checkpoints : MonoBehaviour
                 ghost.ResetData();
                 ghost.isRecord = true;
                 started = true;
-                if (ghost.bestTime = true)
+                if (ghost.bestTime == true)
                 {
                     ghost.isReplay = true;
                 }
@@ -80,14 +81,29 @@ public class Checkpoints : MonoBehaviour
                 {
                     if (currentCheckpoint == checkpoints.Length)
                     {
-                        if (currentLapTime < bestLapTime)
+                        Debug.Log("Last checkpoint");
+                        ghost.isRecord = false;
+                        ghost.isReplay = false;
+
+                        if (ghost.bestTime == false)
                         {
-                            bestLap = currentLap;
-                            ghost.position = ghost.positionBest;
-                            ghost.rotation = ghost.rotationBest;
+                            ghost.positionBest = new List<Vector3>(ghost.position);
+                            ghost.rotationBest = new List<Vector3>(ghost.rotation);
+                            ghost.timeStampBest = new List<float>(ghost.timeStamp);
                             ghost.bestTime = true;
                         }
 
+                        if (currentLapTime < bestLapTime)
+                        {
+                            Debug.Log("Best time");
+                            bestLap = currentLap;
+                            ghost.positionBest = new List<Vector3>(ghost.position);
+                            ghost.rotationBest = new List<Vector3>(ghost.rotation);
+                            ghost.timeStampBest = new List<float>(ghost.timeStamp);
+                            ghost.bestTime = true;
+                        }
+
+                        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
                         finished = true;
                         print("Finished");
                     }

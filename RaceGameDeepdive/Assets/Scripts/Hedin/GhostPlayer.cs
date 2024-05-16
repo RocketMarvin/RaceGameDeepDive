@@ -15,6 +15,12 @@ public class GhostPlayer : MonoBehaviour
     private void Awake()
     {
         timeValue = 0;
+        ghost.isRecord = false;
+        if (bestTime == false)
+        {
+            ghost.isReplay = false;
+        }
+        ghost.ResetData();
     }
 
     private void Update()

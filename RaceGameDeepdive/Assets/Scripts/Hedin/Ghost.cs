@@ -8,7 +8,7 @@ public class Ghost : ScriptableObject
 {
     public bool isRecord;
     public bool isReplay;
-    public bool bestTime = false;
+    public bool bestTime;
     public float recordFrquancy;
 
     public List<float> timeStamp;
@@ -19,15 +19,6 @@ public class Ghost : ScriptableObject
     public List<Vector3> positionBest;
     public List<Vector3> rotationBest;
 
-    private void Start()
-    {
-        isRecord = false;
-        if (bestTime = false)
-        {
-            isReplay = false;
-        }
-        ResetData();
-}
     public void ResetDataBest()
     {
         timeStampBest.Clear();
