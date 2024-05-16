@@ -6,7 +6,8 @@ public class WheelControllerImprov : MonoBehaviour
 {
     public WheelCollider rearLeftCol, rearRightCol;
     public WheelCollider frontLeftCol, frontRightCol;
-
+    
+    public Transform steeringWheelOrigin, steeringWheel;
     public Transform rearLeftWheel, rearRightWheel;
     public Transform frontLeftWheel, frontRightWheel;
 
@@ -68,12 +69,50 @@ public class WheelControllerImprov : MonoBehaviour
             rearLeftCol.brakeTorque = 0;
         }
 
-        if (Input.GetKey(KeyCode.Joystick1Button1) && !isInReverse) isInReverse = !isInReverse;
-
-        //Debug.Log("currentAccel: " + currentAcceleration);
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2)) isInReverse = !isInReverse;
 
         currentTurnAngle = maxTurnAngle * Input.GetAxis("LeftOrRight");
         frontLeftCol.steerAngle = currentTurnAngle;
         frontRightCol.steerAngle = currentTurnAngle;
+
+        UpdateLeftWheel(frontLeftCol, frontLeftWheel);
+        UpdateWheel(frontRightCol, frontRightWheel);
+        UpdateLeftWheel(rearLeftCol, rearLeftWheel);
+        UpdateWheel(rearRightCol, rearRightWheel);
+
+        UpdateSteeringWheel(steeringWheelOrigin ,steeringWheel);
+
+    }
+
+    void UpdateWheel(WheelCollider col, Transform trans)
+    {
+        Vector3 posistion;
+        Quaternion rotation;
+        col.GetWorldPose(out posistion, out rotation);
+
+        trans.position = posistion;
+        trans.rotation = rotation;
+    }
+    void UpdateLeftWheel(WheelCollider col, Transform trans)
+    {
+        Vector3 posistion;
+        Quaternion rotation;
+        col.GetWorldPose(out posistion, out rotation);
+
+        trans.position = posistion;
+        trans.rotation = rotation;
+    }
+
+    void UpdateSteeringWheel(Transform origin, Transform trans)
+    {
+        Vector3 position;
+        Quaternion rotation;
+        origin.GetLocalPositionAndRotation(out position, out rotation);
+
+        trans.position = origin.position;
+
+        Quaternion steeringRotation = Quaternion.Euler(0, -currentTurnAngle *2.5f, 0);
+        trans.rotation = origin.rotation * steeringRotation;
+
     }
 }
