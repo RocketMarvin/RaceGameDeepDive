@@ -109,13 +109,13 @@ public class MenuManager : MonoBehaviour
     public void OnBackToMainPress()
     {
         SceneManager.LoadScene("MainMenu");
+        Unpause();
     }
 
     public void OnResetPress()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        CloseAllMenus() ;
+        Unpause();
     }
 
     #endregion
