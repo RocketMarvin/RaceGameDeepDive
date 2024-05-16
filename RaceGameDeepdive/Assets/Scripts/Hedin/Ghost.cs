@@ -14,6 +14,10 @@ public class Ghost : ScriptableObject
     public List<Vector3> position;
     public List<Vector3> rotation;
 
+    public List<float> timeStampBest;
+    public List<Vector3> positionBest;
+    public List<Vector3> rotationBest;
+
     public void ResetData()
     {
         timeStamp.Clear();

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GhostPlayer : MonoBehaviour
 {
+    private bool bestTime = false;
     public Ghost ghost;
     private float timeValue;
     private int index1;
@@ -19,25 +20,25 @@ public class GhostPlayer : MonoBehaviour
     private void Update()
     {
         timeValue += Time.unscaledDeltaTime;
-
-        if (ghost.isReplay)
+        if (bestTime = true && ghost.isReplay)
         {
             GetIndex();
             SetTransform();
         }
+        
     }
 
     private void GetIndex()
     {
-        for (int i = 0; i < ghost.timeStamp.Count -2; i++)
+        for (int i = 0; i < ghost.timeStampBest.Count -2; i++)
         {
-            if (ghost.timeStamp[i] == timeValue)
+            if (ghost.timeStampBest[i] == timeValue)
             {
                 index1 = i;
                 index2 = i + 1;
                 return;
             }
-            else if (ghost.timeStamp[i] < timeValue & timeValue < ghost.timeStamp[i + 1])
+            else if (ghost.timeStampBest[i] < timeValue & timeValue < ghost.timeStampBest[i + 1])
             {
                 index1 = i;
                 index2 = i + 1;
@@ -45,22 +46,22 @@ public class GhostPlayer : MonoBehaviour
             }
         }
 
-        index1 = ghost.timeStamp.Count - 1;
-        index2 = ghost.timeStamp.Count - 1;
+        index1 = ghost.timeStampBest.Count - 1;
+        index2 = ghost.timeStampBest.Count - 1;
     }
     private void SetTransform()
     {
         if (index1 == index2)
         {
-            this.transform.position = ghost.position[index1];
-            this.transform.eulerAngles = ghost.rotation[index1];
+            this.transform.position = ghost.positionBest[index1];
+            this.transform.eulerAngles = ghost.rotationBest[index1];
         }
         else
         {
-            float interpolationfactor = (timeValue - ghost.timeStamp[index1] / (ghost.timeStamp[index2] - ghost.timeStamp[index1]));
+            float interpolationfactor = (timeValue - ghost.timeStampBest[index1] / (ghost.timeStampBest[index2] - ghost.timeStampBest[index1]));
 
-            this.transform.position = Vector3.Lerp(ghost.position[index1], ghost.position[index2], interpolationfactor);
-            this.transform.eulerAngles = Vector3.Lerp(ghost.rotation[index1], ghost.rotation[index2], interpolationfactor);
+            this.transform.position = Vector3.Lerp(ghost.positionBest[index1], ghost.positionBest[index2], interpolationfactor);
+            this.transform.eulerAngles = Vector3.Lerp(ghost.rotationBest[index1], ghost.rotationBest[index2], interpolationfactor);
         }
     }
 }
