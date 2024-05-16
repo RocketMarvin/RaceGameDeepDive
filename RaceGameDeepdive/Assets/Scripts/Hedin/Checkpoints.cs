@@ -67,6 +67,7 @@ public class Checkpoints : MonoBehaviour
             {
                 print("started");
                 ghost.ResetData();
+                ghost.driving = true;
                 ghost.isRecord = true;
                 started = true;
                 if (ghost.bestTime == true)

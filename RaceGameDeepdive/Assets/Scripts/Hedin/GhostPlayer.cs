@@ -25,14 +25,16 @@ public class GhostPlayer : MonoBehaviour
 
     private void Update()
     {
-        timeValue += Time.unscaledDeltaTime;
-
-        if (ghost.isReplay)
+        if (ghost.driving == true)
         {
-            GetIndex();
-            SetTransform();
-        }
+            timeValue += Time.unscaledDeltaTime;
 
+            if (ghost.isReplay)
+            {
+                GetIndex();
+                SetTransform();
+            }
+        }
     }
 
     private void GetIndex()

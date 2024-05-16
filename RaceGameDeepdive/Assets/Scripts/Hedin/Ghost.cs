@@ -10,6 +10,7 @@ public class Ghost : ScriptableObject
     public bool isRecord;
     public bool isReplay;
     public bool bestTime;
+    public bool driving;
     public float recordFrquancy;
 
     public List<float> timeStamp;
