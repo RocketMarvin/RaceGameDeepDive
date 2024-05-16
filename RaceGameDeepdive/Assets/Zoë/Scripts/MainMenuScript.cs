@@ -6,26 +6,17 @@ using UnityEngine.EventSystems;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public GameObject optionsMenu;
-    public GameObject optionsFirstButton;
+    [Header("MenuObject")]
+    [SerializeField] private GameObject _startGameMenu;
+    [SerializeField] private GameObject _mapSelectMenu;
 
-    public void PlayGame()
+    [Header("FirstSelectedButtons")]
+    [SerializeField] private GameObject _startMenuFirst;
+    [SerializeField] private GameObject _mapMenuFirst;
+
+    private void Start()
     {
-        SceneManager.LoadScene("ZoëScene");
-    }
-
-    public void OptionsMenu()
-    {
-        optionsMenu.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(null);
-
-        EventSystem.current.SetSelectedGameObject(optionsFirstButton);
-
-    }
-    public void QuitGame ()
-    {
-        Debug.Log("quit");
-        Application.Quit();
+        _startGameMenu.SetActive(true);
+        _mapSelectMenu.SetActive(false);
     }
 }
