@@ -9,7 +9,7 @@ public class CameraSwitch : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("c"))
+        if (Input.GetKeyDown("c") || Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             camToggle = !camToggle;
             Debug.Log("input c");
