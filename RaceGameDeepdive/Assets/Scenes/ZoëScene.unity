@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: Resume Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2771,7 +2771,7 @@ GameObject:
   - component: {fileID: 826201245}
   - component: {fileID: 826201244}
   m_Layer: 5
-  m_Name: KeyboardcontrollesButton
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3925,6 +3925,7 @@ GameObject:
   - component: {fileID: 1215885857}
   - component: {fileID: 1215885856}
   - component: {fileID: 1215885860}
+  - component: {fileID: 1215885861}
   m_Layer: 0
   m_Name: mclaren
   m_TagString: Untagged
@@ -3939,7 +3940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215885855}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f93ed5db438d0ae4d8b5660eb68c0ace, type: 3}
   m_Name: 
@@ -3956,10 +3957,14 @@ MonoBehaviour:
   backAcceleration: 300
   brakeForce: 300
   maxTurnAngle: 45
+  rb: {fileID: 1215885857}
   currentAcceleration: 0
   currentBackAcceleration: 0
+  currentSpeed: 0
   currentBrakeForce: 0
   currentTurnAngle: 0
+  isInReverse: 0
+  isStandingStill: 0
 --- !u!54 &1215885857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3968,8 +3973,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215885855}
   serializedVersion: 4
-  m_Mass: 1500
-  m_Drag: 0
+  m_Mass: 1000
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -4049,6 +4054,36 @@ MonoBehaviour:
   - {fileID: 577316596}
   - {fileID: 769034463}
   laps: 3
+--- !u!114 &1215885861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215885855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c0d87c52696194aaf258fed313ec7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rearLeftCol: {fileID: 799814413}
+  rearRightCol: {fileID: 1766114645}
+  frontLeftCol: {fileID: 531229058}
+  frontRightCol: {fileID: 102948961}
+  rearLeftWheel: {fileID: 1235481495}
+  rearRightWheel: {fileID: 1610000915}
+  frontLeftWheel: {fileID: 1373011136}
+  frontRightWheel: {fileID: 1136370805}
+  acceleration: 1000
+  brakeForce: 300
+  maxTurnAngle: 45
+  currentSpeed: 0
+  currentAcceleration: 0
+  currentBrakeForce: 0
+  currentTurnAngle: 0
+  rb: {fileID: 1215885857}
+  isInReverse: 0
+  isStandingStill: 0
 --- !u!1 &1235481494
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,7 +4444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GamePadControlles
+  m_text: Go back to main menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5182,7 +5217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: keyboard
+  m_text: Reset
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5353,7 +5388,7 @@ GameObject:
   - component: {fileID: 1562853738}
   - component: {fileID: 1562853737}
   m_Layer: 5
-  m_Name: GamepadControlsButton
+  m_Name: BackToMainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5422,7 +5457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1562853738}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1469449913}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnBackToMainPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1562853738
 MonoBehaviour:
   m_ObjectHideFlags: 0

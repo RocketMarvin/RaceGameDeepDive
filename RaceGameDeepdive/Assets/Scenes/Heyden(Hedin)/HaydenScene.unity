@@ -2406,6 +2406,7 @@ GameObject:
   - component: {fileID: 1067229996}
   - component: {fileID: 1067230000}
   - component: {fileID: 1067230001}
+  - component: {fileID: 1067230002}
   m_Layer: 0
   m_Name: mclaren
   m_TagString: Untagged
@@ -2420,7 +2421,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067229995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f93ed5db438d0ae4d8b5660eb68c0ace, type: 3}
   m_Name: 
@@ -2437,10 +2438,14 @@ MonoBehaviour:
   backAcceleration: 300
   brakeForce: 300
   maxTurnAngle: 45
+  rb: {fileID: 1067229997}
   currentAcceleration: 0
   currentBackAcceleration: 0
+  currentSpeed: 0
   currentBrakeForce: 0
   currentTurnAngle: 0
+  isInReverse: 0
+  isStandingStill: 0
 --- !u!54 &1067229997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2449,8 +2454,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067229995}
   serializedVersion: 4
-  m_Mass: 1500
-  m_Drag: 0
+  m_Mass: 1000
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2517,12 +2522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b858b47c2416e540a38d75a8910223b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  lapText: {fileID: 0}
-  lapTextShow: {fileID: 0}
-  min: 0
-  sec: 0
-  milli: 0
 --- !u!114 &1067230001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,6 +2535,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghost: {fileID: 11400000, guid: 9a1b44505de84ec4e8eeb07a3a3bf772, type: 2}
+--- !u!114 &1067230002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067229995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c0d87c52696194aaf258fed313ec7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rearLeftCol: {fileID: 324653530}
+  rearRightCol: {fileID: 928486232}
+  frontLeftCol: {fileID: 850271624}
+  frontRightCol: {fileID: 144644631}
+  rearLeftWheel: {fileID: 686207730}
+  rearRightWheel: {fileID: 1448978506}
+  frontLeftWheel: {fileID: 668935126}
+  frontRightWheel: {fileID: 1574126348}
+  acceleration: 1000
+  brakeForce: 300
+  maxTurnAngle: 45
+  currentSpeed: 0
+  currentAcceleration: 0
+  currentBrakeForce: 0
+  currentTurnAngle: 0
+  rb: {fileID: 1067229997}
+  isInReverse: 0
+  isStandingStill: 0
 --- !u!1001 &1069815508
 PrefabInstance:
   m_ObjectHideFlags: 0

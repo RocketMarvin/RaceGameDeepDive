@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -103,6 +104,18 @@ public class MenuManager : MonoBehaviour
     public void OnSettingsBackPress()
     {
         OpenMainMenu();
+    }
+
+    public void OnBackToMainPress()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnResetPress()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        CloseAllMenus() ;
     }
 
     #endregion

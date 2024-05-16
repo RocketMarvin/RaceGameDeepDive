@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Zo\xEBScene.unity"
     guid: ada3be8ffd798f44e81140d87990ea56
+  - enabled: 1
+    path: Assets/Scenes/Heyden(Hedin)/HaydenScene.unity
+    guid: 53e9c8079de22574c9f10fa7241d2d4b
   m_configObjects: {}
