@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class WheelControllerImprov : MonoBehaviour
 {
     public WheelCollider rearLeftCol, rearRightCol;
     public WheelCollider frontLeftCol, frontRightCol;
+
+    public TextMeshProUGUI KMtext;
     
     public Transform steeringWheelOrigin, steeringWheel;
     public Transform rearLeftWheel, rearRightWheel;
@@ -27,18 +31,17 @@ public class WheelControllerImprov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        currentSpeed = rb.velocity.magnitude * 3.6f;
+        KMtext.text = "KM/H: " + currentSpeed.ToString(format: "000");
 
         Debug.Log(isInReverse);
 
         if (Input.GetAxis("RTTrigger") > 0 && !isInReverse)
         {
+            currentSpeed = rb.velocity.magnitude * 3.6f;
             Debug.Log("test input RTT not in reverse");
             currentAcceleration = acceleration * Input.GetAxis("RTTrigger");
             rearLeftCol.motorTorque = currentAcceleration;
             rearRightCol.motorTorque = currentAcceleration;
-            
         }
 
         if (Input.GetAxis("RTTrigger") > 0 && isInReverse)

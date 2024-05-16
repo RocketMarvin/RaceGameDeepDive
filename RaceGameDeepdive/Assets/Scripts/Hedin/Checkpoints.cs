@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checkpoints : MonoBehaviour
 {
@@ -18,10 +19,13 @@ public class Checkpoints : MonoBehaviour
     private float currentLap;
     private bool started;
     private bool finished;
+    
 
-    private float currentLapTime;
-    private float bestLapTime;
-    private float bestLap;
+    private static float currentLapTime;
+    public static float bestLapTime;
+    public static float bestLap;
+
+    public Ghost ghost;
     private void Start()
     {
         currentCheckpoint = 0;
@@ -62,7 +66,14 @@ public class Checkpoints : MonoBehaviour
             if (thischeckpoint == start && !started)
             {
                 print("started");
+                ghost.ResetData();
+                ghost.driving = true;
+                ghost.isRecord = true;
                 started = true;
+                if (ghost.bestTime == true)
+                {
+                    ghost.isReplay = true;
+                }
             }
             // ended the lap//
             else if (thischeckpoint == end && started)
@@ -72,11 +83,26 @@ public class Checkpoints : MonoBehaviour
                 {
                     if (currentCheckpoint == checkpoints.Length)
                     {
+                        Debug.Log("Last checkpoint");
+                        ghost.isRecord = false;
+                        ghost.isReplay = false;
+
+                        ghost.positionBest = new List<Vector3>(ghost.position);
+                        ghost.rotationBest = new List<Vector3>(ghost.rotation);
+                        ghost.timeStampBest = new List<float>(ghost.timeStamp);
+                        ghost.bestTime = true;
+
                         if (currentLapTime < bestLapTime)
                         {
+                            Debug.Log("Best time");
                             bestLap = currentLap;
+                            ghost.positionBest = new List<Vector3>(ghost.position);
+                            ghost.rotationBest = new List<Vector3>(ghost.rotation);
+                            ghost.timeStampBest = new List<float>(ghost.timeStamp);
+                            ghost.bestTime = true;
                         }
 
+                        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
                         finished = true;
                         print("Finished");
                     }

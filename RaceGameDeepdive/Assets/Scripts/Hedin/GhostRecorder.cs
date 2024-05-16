@@ -10,6 +10,7 @@ public class GhostRecorder : MonoBehaviour
 
     private void Awake()
     {
+        ghost.driving = false;
         if (ghost.isRecord)
         {
             ghost.ResetData();
@@ -19,16 +20,19 @@ public class GhostRecorder : MonoBehaviour
     }
     private void Update()
     {
-        Timer += Time.unscaledDeltaTime;
-        timeValue += Time.unscaledDeltaTime;
-
-        if (ghost.isRecord & Timer >= 1/ghost.recordFrquancy)
+        if (ghost.driving == true)
         {
-            ghost.timeStamp.Add(timeValue);
-            ghost.position.Add(this.transform.position);
-            ghost.rotation.Add(this.transform.eulerAngles);
+            Timer += Time.unscaledDeltaTime;
+            timeValue += Time.unscaledDeltaTime;
 
-            Timer = 0;
+            if (ghost.isRecord & Timer >= 1 / ghost.recordFrquancy)
+            {
+                ghost.timeStamp.Add(timeValue);
+                ghost.position.Add(this.transform.position);
+                ghost.rotation.Add(this.transform.eulerAngles);
+
+                Timer = 0;
+            }
         }
     }
 }

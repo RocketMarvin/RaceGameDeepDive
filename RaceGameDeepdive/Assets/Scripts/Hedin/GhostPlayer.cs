@@ -15,22 +15,31 @@ public class GhostPlayer : MonoBehaviour
     private void Awake()
     {
         timeValue = 0;
+        ghost.isRecord = false;
+        if (bestTime == false)
+        {
+            ghost.isReplay = false;
+        }
+        ghost.ResetData();
     }
 
     private void Update()
     {
-        timeValue += Time.unscaledDeltaTime;
-        if (bestTime = true && ghost.isReplay)
+        if (ghost.driving == true)
         {
-            GetIndex();
-            SetTransform();
+            timeValue += Time.unscaledDeltaTime;
+
+            if (ghost.isReplay)
+            {
+                GetIndex();
+                SetTransform();
+            }
         }
-        
     }
 
     private void GetIndex()
     {
-        for (int i = 0; i < ghost.timeStampBest.Count -2; i++)
+        for (int i = 0; i < ghost.timeStampBest.Count - 2; i++)
         {
             if (ghost.timeStampBest[i] == timeValue)
             {
