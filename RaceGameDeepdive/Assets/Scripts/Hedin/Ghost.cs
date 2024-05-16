@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -19,6 +20,10 @@ public class Ghost : ScriptableObject
     public List<Vector3> positionBest;
     public List<Vector3> rotationBest;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     public void ResetDataBest()
     {
         timeStampBest.Clear();

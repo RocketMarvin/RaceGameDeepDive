@@ -21,8 +21,8 @@ public class Checkpoints : MonoBehaviour
     private bool finished;
 
     private float currentLapTime;
-    private float bestLapTime;
-    private float bestLap;
+    public static float bestLapTime;
+    public static float bestLap;
 
     public Ghost ghost;
     private void Start()
@@ -85,13 +85,10 @@ public class Checkpoints : MonoBehaviour
                         ghost.isRecord = false;
                         ghost.isReplay = false;
 
-                        if (ghost.bestTime == false)
-                        {
                             ghost.positionBest = new List<Vector3>(ghost.position);
                             ghost.rotationBest = new List<Vector3>(ghost.rotation);
                             ghost.timeStampBest = new List<float>(ghost.timeStamp);
                             ghost.bestTime = true;
-                        }
 
                         if (currentLapTime < bestLapTime)
                         {

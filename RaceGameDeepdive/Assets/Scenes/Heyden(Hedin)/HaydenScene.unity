@@ -2355,6 +2355,7 @@ GameObject:
   - component: {fileID: 1148478504}
   - component: {fileID: 1148478506}
   - component: {fileID: 1148478505}
+  - component: {fileID: 1148478507}
   m_Layer: 0
   m_Name: senna
   m_TagString: Untagged
@@ -2451,6 +2452,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148478503}
   m_Mesh: {fileID: -753883185444410346, guid: 9862062a9683c4d418bc77c4ec9dc6e6, type: 3}
+--- !u!114 &1148478507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148478503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddca44d2927d4cc4cbb388d8f91211ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 11400000, guid: 9a1b44505de84ec4e8eeb07a3a3bf772, type: 2}
 --- !u!4 &1224716304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2581800735424805860, guid: 1060f28bab45ab94eb490830df68466e,
@@ -2648,6 +2662,7 @@ GameObject:
   - component: {fileID: 1302703297}
   - component: {fileID: 1302703299}
   - component: {fileID: 1302703298}
+  - component: {fileID: 1302703300}
   m_Layer: 0
   m_Name: senna
   m_TagString: Untagged
@@ -2743,6 +2758,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302703296}
   m_Mesh: {fileID: -753883185444410346, guid: 0495328704b7dea468472943ba93e491, type: 3}
+--- !u!114 &1302703300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302703296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f23a41fb99e51342b9577750d4043f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 0}
 --- !u!1001 &1384252452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3335,8 +3363,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651035016}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.99958754, z: -0, w: -0.028718287}
-  m_LocalPosition: {x: 16.23, y: 1.62, z: -0.44}
+  m_LocalRotation: {x: -0, y: 0.99958754, z: -0, w: -0.028718289}
+  m_LocalPosition: {x: 16.85, y: 0.912, z: -10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4159,8 +4187,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 203047349}
-  - {fileID: 1651035018}
   - {fileID: 1061863934}
   - {fileID: 257128698}
   - {fileID: 1105514092}
   - {fileID: 1239421160}
+  - {fileID: 1651035018}
