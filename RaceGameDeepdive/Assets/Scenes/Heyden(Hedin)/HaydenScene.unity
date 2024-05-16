@@ -1611,7 +1611,7 @@ GameObject:
   - component: {fileID: 671921000}
   m_Layer: 0
   m_Name: StartAndEnd
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2404,7 +2404,6 @@ GameObject:
   - component: {fileID: 1067229998}
   - component: {fileID: 1067229997}
   - component: {fileID: 1067229996}
-  - component: {fileID: 1067230000}
   - component: {fileID: 1067230001}
   m_Layer: 0
   m_Name: mclaren
@@ -2437,10 +2436,14 @@ MonoBehaviour:
   backAcceleration: 300
   brakeForce: 300
   maxTurnAngle: 45
+  rb: {fileID: 1067229997}
   currentAcceleration: 0
   currentBackAcceleration: 0
+  currentSpeed: 0
   currentBrakeForce: 0
   currentTurnAngle: 0
+  isInReverse: 0
+  isStandingStill: 0
 --- !u!54 &1067229997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2505,24 +2508,6 @@ Transform:
   - {fileID: 1684153427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 183.291, z: 0}
---- !u!114 &1067230000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067229995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b858b47c2416e540a38d75a8910223b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  lapText: {fileID: 0}
-  lapTextShow: {fileID: 0}
-  min: 0
-  sec: 0
-  milli: 0
 --- !u!114 &1067230001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,8 +2661,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 671920999}
   end: {fileID: 671920999}
-  checkpoints: []
+  checkpoints:
+  - {fileID: 1105514090}
   laps: 1
+  ghost: {fileID: 11400000, guid: 9a1b44505de84ec4e8eeb07a3a3bf772, type: 2}
 --- !u!4 &1105514092
 Transform:
   m_ObjectHideFlags: 0

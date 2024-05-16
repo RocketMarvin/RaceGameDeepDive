@@ -20,7 +20,7 @@ public class GhostPlayer : MonoBehaviour
     private void Update()
     {
         timeValue += Time.unscaledDeltaTime;
-        if (bestTime = true && ghost.isReplay)
+        if (bestTime == true && ghost.isReplay)
         {
             GetIndex();
             SetTransform();

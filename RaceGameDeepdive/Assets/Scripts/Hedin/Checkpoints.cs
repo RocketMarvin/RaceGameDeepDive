@@ -22,6 +22,8 @@ public class Checkpoints : MonoBehaviour
     private float currentLapTime;
     private float bestLapTime;
     private float bestLap;
+
+    public Ghost ghost;
     private void Start()
     {
         currentCheckpoint = 0;
@@ -62,7 +64,13 @@ public class Checkpoints : MonoBehaviour
             if (thischeckpoint == start && !started)
             {
                 print("started");
+                ghost.ResetData();
+                ghost.isRecord = true;
                 started = true;
+                if (ghost.bestTime = true)
+                {
+                    ghost.isReplay = true;
+                }
             }
             // ended the lap//
             else if (thischeckpoint == end && started)
@@ -75,6 +83,9 @@ public class Checkpoints : MonoBehaviour
                         if (currentLapTime < bestLapTime)
                         {
                             bestLap = currentLap;
+                            ghost.position = ghost.positionBest;
+                            ghost.rotation = ghost.rotationBest;
+                            ghost.bestTime = true;
                         }
 
                         finished = true;
