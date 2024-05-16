@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraSwitch : MonoBehaviour
@@ -13,6 +11,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (Input.GetKeyDown("c"))
         {
+            camToggle = !camToggle;
             Debug.Log("input c");
             camManager++;
             Debug.Log(camManager);
@@ -41,31 +40,18 @@ public class CameraSwitch : MonoBehaviour
 
     public void ManageCamera()
     {
-        //if (camToggle)
-        //{
-        //    Cam_2();
-        //    camManager = 1;
-        //}
-        //else
-        //{
-        //    Cam_1();
-        //    camManager = 0;
-        //}
-
-        switch(camManager)
+        if (camToggle)
         {
-            case 0: Cam_1();
-                break;
-
-            case 1: Cam_3();
-                break;
-
-            case 2: Cam_3();
-                break;
-
-            default: camManager = 0;
-                break;
+            Cam_2();
+            camManager = 1;
         }
+        else
+        {
+            Cam_1();
+           camManager = 0;
+        }
+
+        
     }
 
 }
