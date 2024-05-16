@@ -32,12 +32,12 @@ public class GhostPlayer : MonoBehaviour
             GetIndex();
             SetTransform();
         }
-        
+
     }
 
     private void GetIndex()
     {
-        for (int i = 0; i < ghost.timeStampBest.Count -2; i++)
+        for (int i = 0; i < ghost.timeStampBest.Count - 2; i++)
         {
             if (ghost.timeStampBest[i] == timeValue)
             {

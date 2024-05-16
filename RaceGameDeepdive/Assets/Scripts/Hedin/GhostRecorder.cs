@@ -22,7 +22,7 @@ public class GhostRecorder : MonoBehaviour
         Timer += Time.unscaledDeltaTime;
         timeValue += Time.unscaledDeltaTime;
 
-        if (ghost.isRecord & Timer >= 1/ghost.recordFrquancy)
+        if (ghost.isRecord & Timer >= 1 / ghost.recordFrquancy)
         {
             ghost.timeStamp.Add(timeValue);
             ghost.position.Add(this.transform.position);
