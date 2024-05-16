@@ -27,44 +27,50 @@ public class WheelControllerImprov : MonoBehaviour
     void Update()
     {
         
-        currentSpeed = rb.velocity.magnitude * currentAcceleration;
-
-        Debug.Log(rb.velocity.magnitude);
+        currentSpeed = rb.velocity.magnitude * 3.6f;
 
         Debug.Log(isInReverse);
 
-        if (Input.GetAxis("RTTrigger") != 0 && !isInReverse)
+        if (Input.GetAxis("RTTrigger") > 0 && !isInReverse)
         {
             Debug.Log("test input RTT not in reverse");
-            //currentAcceleration = acceleration * 3.6f;
             currentAcceleration = acceleration * Input.GetAxis("RTTrigger");
-            rearLeftCol.motorTorque = currentSpeed;
-            rearRightCol.motorTorque = currentSpeed;
+            rearLeftCol.motorTorque = currentAcceleration;
+            rearRightCol.motorTorque = currentAcceleration;
+            
         }
 
-        if (Input.GetAxis("RTTrigger") != 0 && isInReverse)
+        if (Input.GetAxis("RTTrigger") > 0 && isInReverse)
         {
             Debug.Log("test input RTT in reverse");
-            //currentAcceleration = acceleration * 3.6f;
             currentAcceleration = -acceleration * Input.GetAxis("RTTrigger");
-            rearLeftCol.motorTorque = currentSpeed;
-            rearRightCol.motorTorque = currentSpeed;
+            rearLeftCol.motorTorque = currentAcceleration;
+            rearRightCol.motorTorque = currentAcceleration;
         }
+
+        if (Input.GetAxis("RTTrigger") == 0) currentAcceleration = 0f;
 
         if (Input.GetAxis("LTTrigger") != 0)
         {
             currentBrakeForce = brakeForce;
-            //frontRightCol.brakeTorque = currentBrakeForce;
-            //frontLeftCol.brakeTorque = currentBrakeForce;
-            //rearRightCol.brakeTorque = currentBrakeForce;
-            //rearLeftCol.brakeTorque = currentBrakeForce;
+            frontRightCol.brakeTorque = currentBrakeForce;
+            frontLeftCol.brakeTorque = currentBrakeForce;
+            rearRightCol.brakeTorque = currentBrakeForce;
+            rearLeftCol.brakeTorque = currentBrakeForce;
         }
-        else currentBrakeForce = 0;
 
+        if (Input.GetAxis("LTTrigger") == 0)
+        {
+            currentBrakeForce = 0;
+            frontRightCol.brakeTorque = 0;
+            frontLeftCol.brakeTorque = 0;
+            rearRightCol.brakeTorque = 0;
+            rearLeftCol.brakeTorque = 0;
+        }
 
         if (Input.GetKey(KeyCode.Joystick1Button1) && !isInReverse) isInReverse = !isInReverse;
 
-        Debug.Log("currentAccel: " + currentAcceleration);
+        //Debug.Log("currentAccel: " + currentAcceleration);
 
         currentTurnAngle = maxTurnAngle * Input.GetAxis("LeftOrRight");
         frontLeftCol.steerAngle = currentTurnAngle;
