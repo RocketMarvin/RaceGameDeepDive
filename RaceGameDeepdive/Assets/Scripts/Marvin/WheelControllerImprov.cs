@@ -34,10 +34,10 @@ public class WheelControllerImprov : MonoBehaviour
         KMtext.text = "KM/H: " + currentSpeed.ToString(format: "000");
 
         Debug.Log(isInReverse);
+        currentSpeed = rb.velocity.magnitude * 3.6f;
 
         if (Input.GetAxis("RTTrigger") > 0 && !isInReverse)
         {
-            currentSpeed = rb.velocity.magnitude * 3.6f;
             Debug.Log("test input RTT not in reverse");
             currentAcceleration = acceleration * Input.GetAxis("RTTrigger");
             rearLeftCol.motorTorque = currentAcceleration;
