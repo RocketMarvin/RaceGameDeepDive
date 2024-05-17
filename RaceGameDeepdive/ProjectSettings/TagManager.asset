@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Asvalt
   - Checkpoint
+  - Ground
   layers:
   - Default
   - TransparentFX
