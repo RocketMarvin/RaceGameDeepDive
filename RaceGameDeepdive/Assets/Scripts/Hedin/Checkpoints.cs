@@ -166,11 +166,12 @@ public class Checkpoints : MonoBehaviour
         myStyle.fontSize = 40;
         myStyle.normal.textColor = Color.white;
         myStyle.fontStyle = FontStyle.BoldAndItalic;
-        //current time//
-        string formattedCurrentTime = $"Current: {Mathf.FloorToInt(currentLapTime / 60)}:{currentLapTime % 60:00.000} - (Lap {currentLap})";
-        GUI.Label(new Rect(10, 20, 250, 100), formattedCurrentTime, myStyle);
-        // best time //
-        string formattedBestTime = $"best: {Mathf.FloorToInt(bestLapTime / 60)}:{bestLapTime % 60:00.000} - (Lap {bestLap})";
-        GUI.Label(new Rect(550, 20, 250, 100), formattedBestTime, myStyle);
+
+            //current time//
+            string formattedCurrentTime = $"Current: {Mathf.FloorToInt(currentLapTime / 60)}:{currentLapTime % 60:00.000} - (Lap {currentLap})";
+            GUI.Label(new Rect(10, 20, 250, 100), formattedCurrentTime, myStyle);
+            // best time //
+            string formattedBestTime = $"best: {Mathf.FloorToInt(bestLapTime / 60)}:{bestLapTime % 60:00.000} - (Lap {bestLap})";
+            GUI.Label(new Rect(550, 20, 250, 100), formattedBestTime, myStyle);
     }
 }
