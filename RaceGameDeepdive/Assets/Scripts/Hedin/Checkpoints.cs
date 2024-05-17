@@ -164,6 +164,8 @@ public class Checkpoints : MonoBehaviour
         //GUI Style//
         GUIStyle myStyle = new GUIStyle();
         myStyle.fontSize = 40;
+        myStyle.normal.textColor = Color.white;
+        myStyle.fontStyle = FontStyle.BoldAndItalic;
         //current time//
         string formattedCurrentTime = $"Current: {Mathf.FloorToInt(currentLapTime / 60)}:{currentLapTime % 60:00.000} - (Lap {currentLap})";
         GUI.Label(new Rect(10, 20, 250, 100), formattedCurrentTime, myStyle);
