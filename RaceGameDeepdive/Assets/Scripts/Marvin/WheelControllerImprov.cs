@@ -74,9 +74,22 @@ public class WheelControllerImprov : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button2)) isInReverse = !isInReverse;
 
-        currentTurnAngle = maxTurnAngle * Input.GetAxis("LeftOrRight");
-        frontLeftCol.steerAngle = currentTurnAngle;
-        frontRightCol.steerAngle = currentTurnAngle;
+        if (currentSpeed < 50f)
+        {
+            maxTurnAngle = 90f;
+            currentTurnAngle = maxTurnAngle * Input.GetAxis("LeftOrRight");
+            frontLeftCol.steerAngle = currentTurnAngle;
+            frontRightCol.steerAngle = currentTurnAngle;
+        }
+        else
+        {
+            maxTurnAngle = 45f;
+            currentTurnAngle = maxTurnAngle * Input.GetAxis("LeftOrRight");
+            frontLeftCol.steerAngle = currentTurnAngle;
+            frontRightCol.steerAngle = currentTurnAngle;
+        }
+
+        
 
         UpdateLeftWheel(frontLeftCol, frontLeftWheel);
         UpdateWheel(frontRightCol, frontRightWheel);
