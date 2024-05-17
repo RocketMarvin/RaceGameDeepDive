@@ -1,9 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+
+    public void OnCollisionEnter()
+    {
+        if (gameObject.GetComponent<WheelCollider>().CompareTag("Ground"))
+        {
+            Debug.Log("CamShakeTEst");
+            Shake(3, 3);
+        }
+    }
+
    IEnumerator Shake (float duration, float magnitude)
     {
         Vector3 originalPos = transform.localPosition;

@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 248832951}
   serializedVersion: 2
   m_LocalRotation: {x: 0.77081007, y: -0.0026649372, z: 0.0019937898, w: 0.63705635}
-  m_LocalPosition: {x: 0, y: 0.0735, z: 0.0276}
+  m_LocalPosition: {x: -0.0289, y: 0.0735, z: 0.0276}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.009999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,7 +844,7 @@ Transform:
   m_GameObject: {fileID: 596405793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.058, z: -0.106}
+  m_LocalPosition: {x: -0, y: -0.006, z: -0.11}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -927,7 +927,7 @@ Transform:
   m_GameObject: {fileID: 671012702}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01178, y: 0.02128, z: 0.00209}
+  m_LocalPosition: {x: 0.0115, y: 0.02058, z: 0.00237}
   m_LocalScale: {x: 0.014766, y: 0.01476, z: 0.01476}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -942,7 +942,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671012702}
   serializedVersion: 2
-  m_Center: {x: 0, y: -0.025, z: 0.017}
+  m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.33
   m_SuspensionSpring:
     spring: 90000
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 696001416}
   m_Layer: 0
   m_Name: re
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1074,7 +1074,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.23, z: 0}
-  m_LocalScale: {x: 11.578, y: 11.578, z: 3242.5212}
+  m_LocalScale: {x: 318.35452, y: 11.578, z: 3242.5212}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1494,7 +1494,7 @@ Transform:
   m_GameObject: {fileID: 923607129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01194, y: -0.01647, z: 0.00219}
+  m_LocalPosition: {x: -0.01194, y: -0.01661, z: 0.00233}
   m_LocalScale: {x: 0.014766, y: 0.01476, z: 0.01476}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1509,7 +1509,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923607129}
   serializedVersion: 2
-  m_Center: {x: 0, y: -0.025, z: 0.017}
+  m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.33
   m_SuspensionSpring:
     spring: 90000
@@ -1567,7 +1567,7 @@ Transform:
   m_GameObject: {fileID: 1092429387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.022, z: -0.142}
+  m_LocalPosition: {x: -0.001, y: 0.008, z: -0.13}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1650,7 +1650,7 @@ Transform:
   m_GameObject: {fileID: 1098042871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01194, y: 0.021, z: 0.00185}
+  m_LocalPosition: {x: -0.0115, y: 0.02058, z: 0.00237}
   m_LocalScale: {x: 0.014766, y: 0.01476, z: 0.01476}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1770,14 +1770,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348087246}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0119, y: -0.0162, z: 0.0022}
+  m_LocalRotation: {x: -0, y: 0.0000000046566124, z: -0.019692643, w: 0.99980605}
+  m_LocalPosition: {x: 0.01194, y: -0.01661, z: 0.00233}
   m_LocalScale: {x: 0.014766, y: 0.01476, z: 0.01476}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1092429388}
   m_Father: {fileID: 1607954636}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.257}
 --- !u!146 &1348087248
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -1786,7 +1786,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348087246}
   serializedVersion: 2
-  m_Center: {x: 0, y: -0.025, z: 0.017}
+  m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.33
   m_SuspensionSpring:
     spring: 90000
@@ -2536,13 +2536,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2944987319481414436}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000013767877, y: -0.70710665, z: 0.7071069, w: -0.0000001376788}
-  m_LocalPosition: {x: 0, y: -0.019, z: -0.146}
+  m_LocalRotation: {x: -0.012694477, y: -0.7069927, z: 0.7069929, w: 0.012694487}
+  m_LocalPosition: {x: 0, y: -0.005, z: -0.14}
   m_LocalScale: {x: -0.10000007, y: -0.100040734, z: -0.10004073}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 923607130}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 87.943, y: -89.999, z: 90.001}
 --- !u!1 &2529501451574685573
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2624,7 @@ Transform:
   m_GameObject: {fileID: 2529501451574685573}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000013767877, y: -0.70710665, z: 0.7071069, w: -0.0000001376788}
-  m_LocalPosition: {x: 0, y: 0, z: -0.117}
+  m_LocalPosition: {x: 0, y: 0, z: -0.142}
   m_LocalScale: {x: -0.10000007, y: -0.100040734, z: -0.10004073}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3153,6 +3153,7 @@ GameObject:
   - component: {fileID: 7979085317561784921}
   - component: {fileID: 7979085317561784919}
   - component: {fileID: 7979085317561784922}
+  - component: {fileID: 7979085317561784923}
   m_Layer: 0
   m_Name: mclaren v3
   m_TagString: Untagged
@@ -3256,7 +3257,39 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &7979085317561784923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345572747717525740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8350f4e6b60c417489a234f0111e15a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: {fileID: 0}
+  end: {fileID: 0}
+  checkpoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  laps: 3
+  KMtext: {fileID: 0}
 --- !u!4 &8170005144525614697
 Transform:
   m_ObjectHideFlags: 0
