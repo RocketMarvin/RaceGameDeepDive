@@ -31872,7 +31872,7 @@ MonoBehaviour:
   frontRightWheel: {fileID: 1035362179}
   acceleration: 1500
   brakeForce: 300
-  maxTurnAngle: 45
+  maxTurnAngle: 90
   currentSpeed: 0
   currentAcceleration: 0
   currentBrakeForce: 0
